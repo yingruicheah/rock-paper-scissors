@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href='https://fonts.googleapis.com/css?family=Barlow Semi Condensed' rel='stylesheet'>
+  <link rel="stylesheet" href="css/css.css"> 
+  <script src="script/script.js"></script>
+   	
+</head>
+<body style="margin:0px">
+	<div class="backgroud">
+		<table style="width:100%;margin:auto;padding-top:4%">
+			<tr>
+				<td>
+					<div style="display:flex;width:100%;margin:auto;justify-content:center;align-items:center">
+						<div style="width:51%;display:inline-flex;border:3px solid rgba(255, 255, 255, 28.92%); border-radius:15px;height:150px;align-items:center">
+							<div style="width:3%">
+							</div>
+							<div style="width:23%">
+								<img src="images/logo.svg"/>
+							</div>
+							<div style="width:50%">
+							</div>
+							<div style="width:21%;text-align:center;height:114px">
+								<table style="width:100%;margin:auto;background-color:#ffffff;height:114px;border-radius:8px;">
+									<tr>
+										<td></td>
+									</tr>
+									<tr>
+										<td style="color:#2A45C2;height:19px">
+											SCORE
+										</td>
+									</tr>
+									<tr>
+										<td style="color:#565468;font-weight: 700;font-size:64px;height:64px">
+											<span id="score" ></span>
+										</td>
+									</tr>
+									<tr>
+										<td></td>
+									</tr>
+								</table>
+							</div>
+							<div style="width:3%">
+							</div>
+						</div>
+					</div>
+					
+				</td>
+			</tr>
+			<tr style="height:100px">
+				<td>
+				</td>
+			</tr>
+			<tr style="height:430px">
+				<td>
+					<div id="step1" style="width: 100%; display: flex; justify-content: center; align-items: center;">
+						<table class="backgoundtri"  style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+							<tr>
+								<td style="position:relative">
+									<img src="images/bg-triangle.svg" style="height:287px"/>
+									<div class="btncircle" id="paper">
+										<div class="circle papercolor" >
+											<div class="whitecircle">
+												<div>
+													<img class="step1img" src="images/icon-paper.svg"/>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="btncircle" id="scissors">
+										<div class="circle scissorscolor" >
+											<div class="whitecircle">
+												<div>
+													<img class="step1img" src="images/icon-scissors.svg"/>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="btncircle" id="rock">
+										<div class="circle rockcolor" >
+											<div class="whitecircle">
+												<div>
+													<img class="step1img" src="images/icon-rock.svg"/>
+												</div>
+											</div>
+										</div>
+									</div>	
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div id="step2" style="width:100%;margin:auto;text-align:center;display:none;justify-content:center;align-items: center;">
+						<table style="width:65%;margin:auto;text-align:center;justify-content:center;align-items: center;">
+							<tr>
+							<td>
+								<span style="color:#ffffff;font-size:24px;font-weight:700">YOU PICKED</span>
+							</td>
+							<td>
+							</td>
+							<td>
+								<span style="color:#ffffff;font-size:24px;font-weight:700">THE HOUSE PICKED</span>
+							</td>
+							</tr>
+							<tr>
+								<td colspan="3" style="height:4vh">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="picked" id="usercontainer">
+										<div class="circle step3circle" id="user">
+											<div class="whitecircle step3whitecircle">
+												<div>
+													<img id="userimg" src="" class="step2img"/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div id="step3" style="display:none;text-align:center;justify-content:center;vertical-align:middle;">
+										<span id="result" class="resulttext"></span>
+										<span style="height:3vh"></span>
+										<button class="again" onclick="refresh()">PLAY AGAIN</button>
+									</div>
+								</td>
+								<td>
+									<div class="picked" id="cpucontainer">
+										<div class="circle step3circle" id="cpu">
+											<div class="blackcircle step3whitecircle">
+												<div>
+													<img id="cpuimg" src="" />
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:right">
+					<button id="openButton" onclick="clickrule()" class="rules">RULES</button>
+				</td>
+			</tr>
+			<tr>
+				<td style="height:90px">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="popupcontainer">
+		<div class="popupcontent">
+		<div style="display:flex; justify-content: space-between;margin:25px;">
+			<div style="font-size:32px;font-weight:700;color:#3B4262">
+				RULES
+			</div>
+			<div>
+				<button id="closeButton"><img src="images/icon-close.svg"/></button>
+			</div>
+		</div>
+		<div style="">
+			<img id="popupimage" src="images/image-rules.svg"/>
+		</div>
+		</div>
+	</div>
+	<script>
+		
+		
+		
+		const divs = document.querySelectorAll(".btncircle");
+		const choices = ['rock', 'paper', 'scissors'];
+		var cpupick = ""
+		var result = "";
+		var point = localStorage.getItem('point');
+		point = point ? parseInt(point) : 0;
+		document.getElementById('score').innerText = point;
+		
+
+		divs.forEach(function(div) {
+			div.addEventListener("click", function() {
+				this.classList.toggle("hovercircle");
+				var userpick = this.id;
+				document.getElementById('user').classList.add(userpick+"color");
+				document.getElementById('userimg').src = 'images/icon-'+userpick+'.svg'
+				document.getElementById('step1').style.display = 'none';
+				document.getElementById('step2').style.display = 'inline-flex';
+				
+				setTimeout(function() {
+				cpupick = choices[Math.floor(Math.random() * choices.length)];
+				document.querySelector('.blackcircle').classList.replace('blackcircle', 'whitecircle');
+				document.getElementById('cpu').classList.add(cpupick+"color");
+				document.getElementById('cpuimg').src = 'images/icon-'+cpupick+'.svg';
+				document.getElementById('cpuimg').classList.add("step2img");
+				},500);
+				
+				setTimeout(function(){
+					
+					if (userpick === cpupick) {
+						result = "TIE";
+					}
+					else if (
+					(userpick ==='rock' && cpupick  ==='scissors') ||
+					(userpick ==='scissors' && cpupick  ==='paper') ||
+					(userpick ==='paper' && cpupick  ==='rock'))
+					{
+						result = "YOU WIN";
+						point++;
+						document.getElementById('usercontainer').classList.add("hoverwincircle");
+						
+					}
+					else{
+						result = "YOU LOSE";
+						document.getElementById('cpucontainer').classList.add("hoverwincircle");
+					}
+					document.getElementById('result').innerText = result;
+					document.getElementById('step3').style.display = 'grid';
+					document.getElementById('score').innerText = point;
+					localStorage.setItem('point', point);
+					
+				},1000);
+				
+			});
+
+			div.addEventListener("mouseover", function() {
+				this.classList.add("hovercircle");
+			});
+
+			div.addEventListener("mouseout", function() {
+				this.classList.remove("hovercircle");
+			});
+		});
+	  </script>
+  
+  <!--<div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>-->
+</body>
+</html>
