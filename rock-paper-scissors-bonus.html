@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href='https://fonts.googleapis.com/css?family=Barlow Semi Condensed' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="css/css.css"> 
+  <script src="script/script.js"></script>
+   	
+</head>
+<body style="margin:0px">
+	<div class="backgroud">
+		<table style="width:100%;margin:auto;padding-top:4%">
+			<tr>
+				<td>
+					<div style="display:flex;width:100%;margin:auto;justify-content:center;align-items:center">
+						<div class="title">
+							<div style="width:3%">
+							</div>
+							<div style="width:23%">
+								<img class="logoimg" src="images/logo-bonus.svg"/>
+							</div>
+							<div class="scoregap">
+							</div>
+							<div class="scoreboxcontainer">
+								<table class="scorebox">
+									<tr>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="scoretitletext">
+											SCORE
+										</td>
+									</tr>
+									<tr>
+										<td class="scoretext">
+											<span id="score" ></span>
+										</td>
+									</tr>
+									<tr>
+										<td></td>
+									</tr>
+								</table>
+							</div>
+							<div style="width:3%">
+							</div>
+						</div>
+					</div>
+					
+				</td>
+			</tr>
+			<tr class="space">
+				<td>
+				</td>
+			</tr>
+			<tr class="contentcontainer">
+				<td>
+					<div id="step1" style="width: 100%; display: flex; justify-content: center; align-items: center;">
+						<table class="backgoundtri"  style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+							<tr>
+								<td style="position:relative">
+									<img src="images/bg-pentagon.svg" class="pentaimg" />
+									<div class="btncircle paperpent" id="paper">
+										<div class="circle circlepent papercolor" >
+											<div class="whitecircle whitecirclepent">
+												<div>
+													<img class="step1img" src="images/icon-paper.svg"/>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="btncircle scissorspent" id="scissors">
+										<div class="circle circlepent scissorscolor" >
+											<div class="whitecircle whitecirclepent">
+												<div>
+													<img class="step1img" src="images/icon-scissors.svg"/>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="btncircle rockpent" id="rock">
+										<div class="circle circlepent rockcolor" >
+											<div class="whitecircle whitecirclepent">
+												<div>
+													<img class="step1img" src="images/icon-rock.svg"/>
+												</div>
+											</div>
+										</div>
+									</div>	
+									<div class="btncircle" id="lizard">
+										<div class="circle circlepent lizardcolor" >
+											<div class="whitecircle whitecirclepent">
+												<div>
+													<img class="step1img" src="images/icon-lizard.svg"/>
+												</div>
+											</div>
+										</div>
+									</div>	
+									<div class="btncircle" id="spock">
+										<div class="circle circlepent spockcolor ">
+											<div class="whitecircle whitecirclepent">
+												<div>
+													<img class="step1img" src="images/icon-spock.svg"/>
+												</div>
+											</div>
+										</div>
+									</div>	
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div id="step2" style="width:100%;margin:auto;text-align:center;display:none;justify-content:center;align-items: center;">
+						<table class="step2container">
+							<tr >
+							<td>
+								<span class="pickedtext">YOU PICKED</span>
+							</td>
+							<td>
+							</td>
+							<td>
+								<span class="pickedtext">THE HOUSE PICKED</span>
+							</td>
+							</tr>
+							<tr>
+								<td colspan="3" style="height:30px">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="picked" id="usercontainer">
+										<div class="circle step3circle" id="user">
+											<div class="whitecircle step3whitecircle">
+												<div>
+													<img id="userimg" src="" class="step2img"/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div id="step3" style="display:none;text-align:center;justify-content:center;vertical-align:middle;">
+										<span id="result" class="resulttext"></span>
+										<span style="height:50px"></span>
+										<button class="again" onclick="refresh()">PLAY AGAIN</button>
+									</div>
+								</td>
+								<td>
+									<div class="picked" id="cpucontainer">
+										<div class="circle step3circle" id="cpu">
+											<div class="blackcircle step3whitecircle">
+												<div>
+													<img id="cpuimg" src="" />
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" style="height:30px">
+								</td>
+							</tr>
+							<tr >
+								<td>
+									<span class="pickedtextmobile"> YOU PICKED</span>
+								</td>
+								<td>
+								</td>
+								<td>
+									<span class="pickedtextmobile">THE HOUSE PICKED</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3">
+									<div style="width:100%">
+										<table style="width:100%" class="mobile">
+											<tr>
+												<td colspan="3" style="height:60px">
+												</td>
+											</tr>
+											<tr>
+												<td colspan="3">
+													<div class="blankdiv">
+													</div>
+													<div id="step3mobile" style="display:none;text-align:center;justify-content:center;vertical-align:middle;">
+														<span id="resultmobile" class="resulttext"></span>
+														<span style="height:25px"></span>
+														<button class="again" onclick="refresh()">PLAY AGAIN</button>
+													</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+							</tr>
+							
+						</table>
+					</div>
+					
+				</td>
+			</tr>
+			<tr>
+				<td style="height:30px">
+				</td>
+			</tr>
+			<tr>
+				<td class="rulestd" >
+					<button id="openButton" onclick="clickrule()" class="rules">RULES</button>
+				</td>
+			</tr>
+			<tr>
+				<td style="height:90px">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="popupcontainer">
+		<div class="popupcontent popupcontentpentagon">
+		<div style="display:flex; justify-content: space-between;margin:25px;">
+			<div style="font-size:32px;font-weight:700;color:#3B4262">
+				RULES
+			</div>
+			<div>
+				<button id="closeButton"><img src="images/icon-close.svg"/></button>
+			</div>
+		</div>
+		<div style="">
+			<img id="popupimage" src="images/image-rules-bonus.svg"/>
+		</div>
+		</div>
+	</div>
+	<div id="popupcontainermobile">
+		<div class="popupcontentmobile">
+		<div style="font-size:32px;font-weight:700;color:#3B4262;text-align:center;padding:104px 0px;">
+				RULES
+			</div>
+		<div style="text-align:center;padding-bottom:140px">
+			<img id="popupimage" src="images/image-rules-bonus.svg"/>
+		</div>
+		<div style="text-align:center">
+				<button id="closeButtonMobile"><img src="images/icon-close.svg"/></button>
+			</div>
+		</div>
+	</div>
+	<script>
+		
+		
+		
+		const divs = document.querySelectorAll(".btncircle");
+		const choices = ['rock', 'paper', 'scissors','lizard','spock'];
+		var cpupick = ""
+		var result = "";
+		var point = localStorage.getItem('point');
+		point = point ? parseInt(point) : 0;
+		document.getElementById('score').innerText = point;
+		
+
+		divs.forEach(function(div) {
+			div.addEventListener("click", function() {
+				this.classList.toggle("hovercircle");
+				var userpick = this.id;
+				document.getElementById('user').classList.add(userpick+"color");
+				document.getElementById('userimg').src = 'images/icon-'+userpick+'.svg'
+				document.getElementById('step1').style.display = 'none';
+				document.getElementById('step2').style.display = 'inline-flex';
+				
+				setTimeout(function() {
+				cpupick = choices[Math.floor(Math.random() * choices.length)];
+				document.querySelector('.blackcircle').classList.replace('blackcircle', 'whitecircle');
+				document.getElementById('cpu').classList.add(cpupick+"color");
+				document.getElementById('cpuimg').src = 'images/icon-'+cpupick+'.svg';
+				document.getElementById('cpuimg').classList.add("step2img");
+				},500);
+				
+				setTimeout(function(){
+					
+					if (userpick === cpupick) {
+						result = "TIE";
+					}
+					else if (
+					(userpick ==='rock' && cpupick  ==='scissors') ||
+					(userpick ==='rock' && cpupick  ==='lizard') ||
+					(userpick ==='scissors' && cpupick  ==='paper') ||
+					(userpick ==='scissors' && cpupick  ==='lizard') ||
+					(userpick ==='paper' && cpupick  ==='rock')||
+					(userpick ==='paper' && cpupick  ==='spock')||
+					(userpick ==='lizard' && cpupick  ==='spock')||
+					(userpick ==='lizard' && cpupick  ==='paper')||
+					(userpick ==='spock' && cpupick  ==='scissors')||
+					(userpick ==='spock' && cpupick  ==='rock'))
+					{
+						result = "YOU WIN";
+						point++;
+						document.getElementById('usercontainer').classList.add("hoverwincircle");
+						
+					}
+					else{
+						result = "YOU LOSE";
+						point--;
+						document.getElementById('cpucontainer').classList.add("hoverwincircle");
+					}
+					
+					if(window.innerWidth >=768){
+						document.getElementById('result').innerText = result;
+						document.getElementById('step3').style.display = 'grid';
+					}
+					else{
+						document.getElementById('resultmobile').innerText = result;
+						document.querySelector('.blankdiv').style.display = 'none';
+						document.getElementById('step3mobile').style.display = 'grid';
+					}
+					document.getElementById('score').innerText = point;
+					localStorage.setItem('point', point);
+					
+				},1000);
+				
+			});
+
+			div.addEventListener("mouseover", function() {
+				this.classList.add("hovercircle");
+			});
+
+			div.addEventListener("mouseout", function() {
+				this.classList.remove("hovercircle");
+			});
+		});
+	  </script>
+  
+  <!--<div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>-->
+</body>
+</html>
