@@ -16,26 +16,26 @@
 			<tr>
 				<td>
 					<div style="display:flex;width:100%;margin:auto;justify-content:center;align-items:center">
-						<div style="width:51%;display:inline-flex;border:3px solid rgba(255, 255, 255, 28.92%); border-radius:15px;height:150px;align-items:center">
+						<div class="title">
 							<div style="width:3%">
 							</div>
 							<div style="width:23%">
-								<img src="images/logo.svg"/>
+								<img class="logoimg" src="images/logo.svg"/>
 							</div>
-							<div style="width:50%">
+							<div class="scoregap">
 							</div>
-							<div style="width:21%;text-align:center;height:114px">
-								<table style="width:100%;margin:auto;background-color:#ffffff;height:114px;border-radius:8px;">
+							<div class="scoreboxcontainer">
+								<table class="scorebox">
 									<tr>
 										<td></td>
 									</tr>
 									<tr>
-										<td style="color:#2A45C2;height:19px">
+										<td class="scoretitletext">
 											SCORE
 										</td>
 									</tr>
 									<tr>
-										<td style="color:#565468;font-weight: 700;font-size:64px;height:64px">
+										<td class="scoretext">
 											<span id="score" ></span>
 										</td>
 									</tr>
@@ -51,17 +51,17 @@
 					
 				</td>
 			</tr>
-			<tr style="height:100px">
+			<tr class="space">
 				<td>
 				</td>
 			</tr>
-			<tr style="height:430px">
+			<tr class="contentcontainer">
 				<td>
 					<div id="step1" style="width: 100%; display: flex; justify-content: center; align-items: center;">
 						<table class="backgoundtri"  style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
 							<tr>
 								<td style="position:relative">
-									<img src="images/bg-triangle.svg" style="height:287px"/>
+									<img src="images/bg-triangle.svg" class="triimg" />
 									<div class="btncircle" id="paper">
 										<div class="circle papercolor" >
 											<div class="whitecircle">
@@ -94,19 +94,19 @@
 						</table>
 					</div>
 					<div id="step2" style="width:100%;margin:auto;text-align:center;display:none;justify-content:center;align-items: center;">
-						<table style="width:65%;margin:auto;text-align:center;justify-content:center;align-items: center;">
-							<tr>
+						<table class="step2container">
+							<tr >
 							<td>
-								<span style="color:#ffffff;font-size:24px;font-weight:700">YOU PICKED</span>
+								<span class="pickedtext">YOU PICKED</span>
 							</td>
 							<td>
 							</td>
 							<td>
-								<span style="color:#ffffff;font-size:24px;font-weight:700">THE HOUSE PICKED</span>
+								<span class="pickedtext">THE HOUSE PICKED</span>
 							</td>
 							</tr>
 							<tr>
-								<td colspan="3" style="height:4vh">
+								<td colspan="3" style="height:30px">
 								</td>
 							</tr>
 							<tr>
@@ -124,7 +124,7 @@
 								<td>
 									<div id="step3" style="display:none;text-align:center;justify-content:center;vertical-align:middle;">
 										<span id="result" class="resulttext"></span>
-										<span style="height:3vh"></span>
+										<span style="height:50px"></span>
 										<button class="again" onclick="refresh()">PLAY AGAIN</button>
 									</div>
 								</td>
@@ -140,13 +140,55 @@
 									</div>
 								</td>
 							</tr>
+							<tr>
+								<td colspan="3" style="height:30px">
+								</td>
+							</tr>
+							<tr >
+								<td>
+									<span class="pickedtextmobile"> YOU PICKED</span>
+								</td>
+								<td>
+								</td>
+								<td>
+									<span class="pickedtextmobile">THE HOUSE PICKED</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3">
+									<div style="width:100%">
+										<table style="width:100%" class="mobile">
+											<tr>
+												<td colspan="3" style="height:60px">
+												</td>
+											</tr>
+											<tr>
+												<td colspan="3">
+													<div class="blankdiv">
+													</div>
+													<div id="step3mobile" style="display:none;text-align:center;justify-content:center;vertical-align:middle;">
+														<span id="resultmobile" class="resulttext"></span>
+														<span style="height:25px"></span>
+														<button class="again" onclick="refresh()">PLAY AGAIN</button>
+													</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</td>
+							</tr>
+							
 						</table>
 					</div>
 					
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align:right">
+				<td style="height:30px">
+				</td>
+			</tr>
+			<tr>
+				<td class="rulestd" >
 					<button id="openButton" onclick="clickrule()" class="rules">RULES</button>
 				</td>
 			</tr>
@@ -169,6 +211,19 @@
 		<div style="">
 			<img id="popupimage" src="images/image-rules.svg"/>
 		</div>
+		</div>
+	</div>
+	<div id="popupcontainermobile">
+		<div class="popupcontentmobile">
+		<div style="font-size:32px;font-weight:700;color:#3B4262;text-align:center;padding:104px 0px;">
+				RULES
+			</div>
+		<div style="text-align:center;padding-bottom:140px">
+			<img id="popupimage" src="images/image-rules.svg"/>
+		</div>
+		<div style="text-align:center">
+				<button id="closeButtonMobile"><img src="images/icon-close.svg"/></button>
+			</div>
 		</div>
 	</div>
 	<script>
@@ -220,8 +275,16 @@
 						result = "YOU LOSE";
 						document.getElementById('cpucontainer').classList.add("hoverwincircle");
 					}
-					document.getElementById('result').innerText = result;
-					document.getElementById('step3').style.display = 'grid';
+					
+					if(window.innerWidth >=768){
+						document.getElementById('result').innerText = result;
+						document.getElementById('step3').style.display = 'grid';
+					}
+					else{
+						document.getElementById('resultmobile').innerText = result;
+						document.querySelector('.blankdiv').style.display = 'none';
+						document.getElementById('step3mobile').style.display = 'grid';
+					}
 					document.getElementById('score').innerText = point;
 					localStorage.setItem('point', point);
 					

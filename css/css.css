@@ -1,9 +1,28 @@
 
-  body {
-	font-family: 'Barlow Semi Condensed';
-	font-weight: 600;
-	font-size: 16px;
-  }
+	body {
+		font-family: 'Barlow Semi Condensed';
+		font-weight: 600;
+		font-size: 16px;
+	}
+	.title{
+		width:51%;
+		display:flex;
+		border:3px solid rgba(255, 255, 255, 28.92%); 
+		border-radius:15px;
+		height:150px;
+		align-items:center;
+	}
+	.scorebox{
+		width:100%;
+		margin:auto;
+		background-color:#ffffff;
+		height:114px;
+		border-radius:8px;
+	}
+	.triimg{
+		width:254px;
+		height:287px;
+	}
 	.circle {
 		height:198px;
 		width:198px;
@@ -70,6 +89,12 @@
 		cursor:pointer;
 	}
 	
+	#closeButtonMobile {
+		background-color:transparent;
+		border:none;
+		cursor:pointer;
+	}
+	
 	.choose {
 		position:absolute;
 		top: 50%;
@@ -107,7 +132,7 @@
 	}
 	
 	#rock {
-		left:60px;
+		left:30px;
 		top:45%;
 		position:absolute;
 	}
@@ -183,7 +208,7 @@
 		width:225px !important;
 	}
 	.step1img {
-		width:76x;
+		width:76px;
 		height:76px;
 	}
 	.step2img {
@@ -193,6 +218,179 @@
 	.backgroud {
 		width:100%; 
 		background-image: linear-gradient(to bottom right, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
-		height:919px;
-		min-height:500px;
+		background-position: 100% 100%;
+	}
+	.rulestd{
+		text-align:right;
+	}
+	.scoretext{
+		color:#565468;
+		font-weight: 700;
+		font-size:64px;
+		height:64px
+	}
+	.scoretitletext{
+		color:#2A45C2;
+		height:19px;
+	}
+	.scoreboxcontainer{
+		width:21%;
+		text-align:center;
+		height:114px;
+		flex: 1;
+	}
+	#popupcontainermobile{
+		display:none;
+	}
+	.popupcontentmobile {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  background-color: #fff;
+	  width:100%;
+	  height:100%;
+	}
+	.pickedtext {
+		color:#ffffff;
+		font-size:24px;
+		font-weight:700;
+		display:block;
+	}
+	.pickedtextmobile {
+		color:#ffffff;
+		font-size:15px;
+		font-weight:700;
+		display:none;
+	}
+	.mobile{
+		display:none;
+	}
+	.step2container{
+		width:65%;
+		margin:auto;
+		text-align:center;
+		justify-content:center;
+		align-items: center;
+	}
+	.scoregap{
+		width:50%;
+	}
+	.bankdiv{
+		display:none;
+	}
+	.space{
+		height:100px;
+	}
+	.contentcontainer{
+		height:415px;
+	}
+	@media only screen and (max-width: 600px) {
+		.title{
+			width:90%;
+			height:96px;
+			border-radius:0px;
+			margin-top:7%;
+		}
+		.logoimg{
+			width:100%;
+		}
+		.scorebox{
+			width:80px;
+			height:72px;
+		}
+		.triimg{
+			width: 166px;
+			height: 188px;
+		}
+		.rulestd{
+			text-align:center;
+		}
+		.circle {
+			height:95px;
+			width:100px;
+			
+		}
+		.whitecircle {
+			height:70px;
+			width:77px;
+			box-shadow: 0px -4px 0px 0px #BABFD4;
+			
+		}
+		#paper {
+			right:60%;
+			top:-15%;
+		}
+		#scissors {
+			left:60%;
+			top:-15%;
+		}
+		
+		#rock {
+			left:50%;
+			top:55%;
+			transform: translate(-50%, -10%);
+		}
+		.scoretext{
+			font-weight: 700;
+			font-size:40px;
+			height:40px
+		}
+		.scoretitletext{
+			height:12px;
+			font-size:10px;
+		}
+		.scoreboxcontainer{
+			height:72px
+		}
+		.step1img {
+			width:40px;
+			height:40px;
+		}
+		.step2img {
+			width:40px;
+			height:40px;
+		}
+		.pickedtext {
+			display:none;
+		}
+		.mobile{
+			display:flex;
+			justify-content:center;
+		}
+		.step3whitecircle {
+			height:70px !important;
+			width:77px !important;
+		}
+		.step3circle {
+			height:95px !important;
+			width:100px !important;
+		}
+		.hoverwincircle{
+			box-shadow: 
+			0px 0px 0px 20px rgba(255, 255, 255, 0.05),
+			0px 0px 0px 50px rgba(255, 255, 255, 0.025),
+			0px 0px 0px 90px rgba(255, 255, 255, 0.01);
+		}
+		.step2container{
+			width:100%;
+		}
+		.pickedtextmobile{
+			display:block;
+		}
+		.blackcircle{
+			width:110px;
+			height:110px;
+		}
+		.scoregap{
+			width:45%;
+		}
+		.blankdiv{
+			display:flex;
+			height:140px;
+		}
+		.space{
+			height:50px;
+		}
+		
 	}
